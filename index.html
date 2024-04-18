@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="calculator.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>&copy; My Calculator</h1>
+    <section>
+        <div class="userNumbers">
+            <table>
+                <tbody class="numbers">
+                    <tr>
+                        <td><input type="button" value="7"></td>
+                        <td><input type="button" value="8"></td>
+                        <td><input type="button" value="9"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="4"></td>
+                        <td><input type="button" value="5"></td>
+                        <td><input type="button" value="6"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="1"></td>
+                        <td><input type="button" value="2"></td>
+                        <td><input type="button" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td><abbr title="Clear"><input type="button" value="C" onclick="clearDisplay()"></abbr></td> 
+                        <td><input type="button" value="0"></td>
+                        <td><input type="button" value="."></td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <th class="visualizer" colspan="3" scope="colgroup">
+                        <input type="text" id="display">        
+                    </th>
+                </thead>
+            </table>
+        </div>
+        
+        <div class="userOperators">
+            <table>
+                <tbody class="operators">
+                    <tr>
+                        <th class="normal" rowspan="5" scope="rowgroup"></th>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="/"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="x"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="-"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="+"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="equal" value="="></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="msg"></div>
+
+    </section>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
