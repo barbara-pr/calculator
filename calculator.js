@@ -1,35 +1,44 @@
-let display = document.getElementById('display')
-let numbers = document.querySelectorAll('.numbers input[type="button"]')
-let operators = document.querySelectorAll('.operators input[type="button"]')
-let msg = document.getElementById('msg')
+document.addEventListener('DOMContentLoaded', () => {
+    let display = document.getElementById('display')
+    let numbersUser = document.querySelectorAll('.numbers button') 
+    let operationUser = document.querySelectorAll('.operation button')
+    let clearButton = document.getElementById('clear')
+    let msg = document.getElementById('msg')
 
-//Adicionando evento de clique aos números
-numbers.forEach(button => {
-    button.addEventListener('click', function() {
-        //Para aparecer no display
-        if (display.value === "C") {
-            display.value = ""
-        }
-        display.value += button.value
-    })
-})
+    // armazenar a expressão acumulada
+    let expression = ''
 
-//Adicionando evento de clique aos operadores
-operators.forEach(button => {
-    button.addEventListener('click', function() {
-        let value = button.value
-        if (value === '=') {
-            try {
-                display.value = eval(display.value.replace('x', '*'))
-            } catch (error) {
-                msg.textContent = 'Error!'
+    //percorrendo todos os números digitados e criando uma função para retornar o forEach
+    numbersUser.forEach(button => {
+        button.addEventListener('click', () => { //quando clicar vai chamar uma função
+            if (display.value === '0' || display.value === 'Error!') {
+                display.value = ''
             }
-        } else {
-            display.value += value
-        }
+            display.value += button.textContent
+            expression += button.textContent
+        })
+    })
+
+    //percorrendo todos os operadores digitados
+    operationUser.forEach(button => {
+        button.addEventListener('click', () => {
+            let valueResult = button.textContent 
+            if (valueResult === '=') {
+                try {
+                    display.value = eval(expression.replace('x', '*')) //operador de multiplicação é *
+                } catch (error) {
+                    msg.textContent = 'Error!'
+                }
+                expression = ''
+            } else {
+                display.value += valueResult //dígito
+                expression += valueResult //operador
+            }
+        })
+    })
+
+    clearButton.addEventListener('click', () => {
+        display.value = ''
+        expression = ''
     })
 })
-
-function clearDisplay() {
-    display.value = ''
-}

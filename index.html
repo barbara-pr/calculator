@@ -4,74 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
     <link rel="stylesheet" href="calculator.css">
     <title>Calculator</title>
 </head>
 <body>
-    <h1>&copy; My Calculator</h1>
-    <section>
-        <div class="userNumbers">
-            <table>
-                <tbody class="numbers">
-                    <tr>
-                        <td><input type="button" value="7"></td>
-                        <td><input type="button" value="8"></td>
-                        <td><input type="button" value="9"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="4"></td>
-                        <td><input type="button" value="5"></td>
-                        <td><input type="button" value="6"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="1"></td>
-                        <td><input type="button" value="2"></td>
-                        <td><input type="button" value="3"></td>
-                    </tr>
-                    <tr>
-                        <td><abbr title="Clear"><input type="button" value="C" onclick="clearDisplay()"></abbr></td> 
-                        <td><input type="button" value="0"></td>
-                        <td><input type="button" value="."></td>
-                    </tr>
-                </tbody>
-                <thead>
-                    <th class="visualizer" colspan="3" scope="colgroup">
-                        <input type="text" id="display">        
-                    </th>
-                </thead>
-            </table>
-        </div>
-        
-        <div class="userOperators">
-            <table>
-                <tbody class="operators">
-                    <tr>
-                        <th class="normal" rowspan="5" scope="rowgroup"></th>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="/"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="x"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="-"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" value="+"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="button" id="equal" value="="></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <main>
+        <h1>&copy; My Calculator</h1>
+
+        <!--<input type="number" id="visualizer">-->
+        <table>
+            <thead>
+                <input type="text" id="display">        
+            </thead>
+        </table>
 
         <div id="msg"></div>
 
-    </section>
+        <div class="container">
+            <div class="numbers">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <abbr title="Clear"><button id="clear">C</button></abbr>
+                <button>0</button>
+                <button>.</button>
+            </div>
+        
+            <div class="operation-container">
+                <button class="operation">x</button>
+                <button class="operation">/</button>
+                <button class="operation">-</button>
+                <button class="operation">+</button>
+            </div>
+            
+            <button id="equal">=</button>
+        </div>
+    </main>
 
-    <script src="calculator.js"></script>
+    <script src="calculator.js" defer></script>
 </body>
 </html>
